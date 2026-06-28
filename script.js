@@ -3,234 +3,188 @@
 
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Loader: do not let a slow video delay the page indefinitely.
   const loader = $('#siteLoader');
-  let loaderDismissed = false;
-  const hideLoader = () => {
-    if (loaderDismissed || !loader) return;
-    loaderDismissed = true;
-    loader.classList.add('is-hidden');
-    window.setTimeout(() => loader.remove(), 700);
-  };
-  window.addEventListener('load', () => window.setTimeout(hideLoader, 350), { once: true });
-  window.setTimeout(hideLoader, 2400);
+  window.addEventListener('load', () => {
+    window.setTimeout(() => loader?.classList.add('hide'), 350);
+  });
 
-  // Header appearance.
-  const header = $('#siteHeader');
-  const updateHeader = () => header?.classList.toggle('is-solid', window.scrollY > 35);
+  const header = $('#header');
+  const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 32);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
-  // Mobile navigation.
-  const menuToggle = $('#menuToggle');
-  const menuClose = $('#menuClose');
-  const mobileMenu = $('#mobileMenu');
-  const menuBackdrop = $('#menuBackdrop');
-  let lastMenuFocus = null;
-
-  const closeMenu = () => {
-    if (!mobileMenu?.classList.contains('is-open')) return;
-    mobileMenu.classList.remove('is-open');
-    menuBackdrop?.classList.remove('is-open');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-    menuToggle?.setAttribute('aria-expanded', 'false');
+  const menuButton = $('#menuButton');
+  const mobileNav = $('#mobileNav');
+  const closeMobileNav = () => {
+    mobileNav?.classList.remove('open');
+    menuButton?.classList.remove('active');
+    menuButton?.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
-    lastMenuFocus?.focus?.();
   };
-
-  const openMenu = () => {
-    if (!mobileMenu) return;
-    lastMenuFocus = document.activeElement;
-    mobileMenu.classList.add('is-open');
-    menuBackdrop?.classList.add('is-open');
-    mobileMenu.setAttribute('aria-hidden', 'false');
-    menuToggle?.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('menu-open');
-    window.setTimeout(() => $('a', mobileMenu)?.focus(), 120);
-  };
-
-  menuToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.contains('is-open') ? closeMenu() : openMenu();
+  menuButton?.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuButton.classList.toggle('active', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('menu-open', isOpen);
   });
-  menuClose?.addEventListener('click', closeMenu);
-  menuBackdrop?.addEventListener('click', closeMenu);
-  $$('a', mobileMenu).forEach(link => link.addEventListener('click', closeMenu));
+  $$('.mobile-nav a').forEach(link => link.addEventListener('click', closeMobileNav));
 
-  // Reveal elements as they reach the viewport.
   const revealItems = $$('.reveal');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver((entries) => {
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          entry.target.classList.add('in-view');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -25px' });
-    revealItems.forEach(item => observer.observe(item));
+    }, { threshold: 0.12 });
+    revealItems.forEach(item => revealObserver.observe(item));
   } else {
-    revealItems.forEach(item => item.classList.add('is-visible'));
+    revealItems.forEach(item => item.classList.add('in-view'));
   }
 
-  // Work filter.
-  const filters = $$('.work-filter');
-  const workItems = $$('.work-card');
-  filters.forEach(filter => {
-    filter.addEventListener('click', () => {
-      const value = filter.dataset.filter;
-      filters.forEach(item => {
-        const active = item === filter;
-        item.classList.toggle('is-active', active);
-        item.setAttribute('aria-selected', String(active));
+  const navigationLinks = $$('.desktop-nav a:not(.nav-book)');
+  const observedSections = $$('main section[id]');
+  if ('IntersectionObserver' in window) {
+    const navObserver = new IntersectionObserver(entries => {
+      const active = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!active) return;
+      navigationLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${active.target.id}`));
+    }, { rootMargin: '-42% 0px -50% 0px', threshold: [0.05, 0.2, 0.4] });
+    observedSections.forEach(section => navObserver.observe(section));
+  }
+
+  const filterButtons = $$('.filter-button');
+  const portfolioCards = $$('.portfolio-card');
+  const portfolioGrid = $('#portfolioGrid');
+
+  const applyPortfolioFilter = filter => {
+    portfolioCards.forEach(card => {
+      const matches = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('hide', !matches);
+    });
+  };
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(item => {
+        const selected = item === button;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-selected', String(selected));
       });
-      workItems.forEach(item => {
-        const visible = value === 'all' || item.dataset.category === value;
-        item.classList.toggle('is-filtered', !visible);
-      });
+      applyPortfolioFilter(button.dataset.filter);
     });
   });
 
-  // Gallery lightbox.
   const lightbox = $('#lightbox');
   const lightboxImage = $('#lightboxImage');
-  const lightboxTitle = $('#lightboxTitle');
-  const lightboxMeta = $('#lightboxMeta');
+  const lightboxCaption = $('#lightboxCaption');
   const lightboxClose = $('#lightboxClose');
-  let lastGalleryFocus = null;
+  const previousButton = $('#lightboxPrevious');
+  const nextButton = $('#lightboxNext');
+  let activeIndex = 0;
+  let lastFocus = null;
 
+  const getVisibleCards = () => portfolioCards.filter(card => !card.classList.contains('hide'));
+  const setLightboxImage = index => {
+    const cards = getVisibleCards();
+    if (!cards.length) return;
+    activeIndex = (index + cards.length) % cards.length;
+    const card = cards[activeIndex];
+    const image = $('img', card);
+    lightboxImage.src = card.dataset.full;
+    lightboxImage.alt = image?.alt || 'ChitroRong portfolio image';
+    lightboxCaption.textContent = `${$('b', card)?.textContent || 'Portfolio image'} — ChitroRong`;
+  };
+  const openLightbox = card => {
+    const cards = getVisibleCards();
+    activeIndex = Math.max(0, cards.indexOf(card));
+    lastFocus = document.activeElement;
+    setLightboxImage(activeIndex);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    window.setTimeout(() => lightboxClose?.focus(), 30);
+  };
   const closeLightbox = () => {
-    if (!lightbox?.classList.contains('is-open')) return;
-    lightbox.classList.remove('is-open');
+    if (!lightbox?.classList.contains('open')) return;
+    lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('menu-open');
-    window.setTimeout(() => {
-      if (lightboxImage) lightboxImage.src = '';
-    }, 250);
-    lastGalleryFocus?.focus?.();
+    document.body.classList.remove('lightbox-open');
+    window.setTimeout(() => { lightboxImage.src = ''; }, 220);
+    lastFocus?.focus?.();
   };
 
-  workItems.forEach(item => {
-    item.addEventListener('click', () => {
-      if (!lightbox || !lightboxImage) return;
-      lastGalleryFocus = document.activeElement;
-      lightboxImage.src = item.dataset.full || '';
-      lightboxImage.alt = item.querySelector('img')?.alt || 'ChitroRong portfolio photograph';
-      if (lightboxTitle) lightboxTitle.textContent = item.dataset.title || '';
-      if (lightboxMeta) lightboxMeta.textContent = item.dataset.meta || '';
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('menu-open');
-      window.setTimeout(() => lightboxClose?.focus(), 80);
-    });
-  });
-
+  portfolioCards.forEach(card => card.addEventListener('click', () => openLightbox(card)));
   lightboxClose?.addEventListener('click', closeLightbox);
-  lightbox?.addEventListener('click', event => {
-    if (event.target === lightbox) closeLightbox();
-  });
-
-  // All package groups are expanded by default so clients can compare every option without an extra tap.
-
-  // Booking form steps and package shortcut.
-  const form = $('#bookingForm');
-  const packageSelect = $('#packageSelect');
-  const formStatus = $('#formStatus');
-  const formSteps = $$('.form-step', form);
-  const progressDots = $$('[data-progress]', form);
-
-  const showStep = (stepNumber, shouldFocus = false) => {
-    formSteps.forEach(step => {
-      const active = Number(step.dataset.step) === stepNumber;
-      step.hidden = !active;
-      step.classList.toggle('is-current', active);
-    });
-    progressDots.forEach(dot => dot.classList.toggle('is-current', Number(dot.dataset.progress) === stepNumber));
-    if (shouldFocus) {
-      window.setTimeout(() => $('input, select, textarea, button', $(`.form-step[data-step="${stepNumber}"]`, form))?.focus(), 80);
-    }
-  };
-
-  const ensurePackageOption = (packageName) => {
-    if (!packageSelect || !packageName) return;
-    const exists = [...packageSelect.options].some(option => option.value === packageName || option.textContent === packageName);
-    if (!exists) packageSelect.add(new Option(packageName, packageName));
-    packageSelect.value = packageName;
-  };
-
-  $$('.package-book').forEach(button => {
-    button.addEventListener('click', () => {
-      const selected = button.dataset.package;
-      ensurePackageOption(selected);
-      showStep(1);
-      if (formStatus) formStatus.textContent = `Selected: ${selected}. Add your event details to continue.`;
-      $('#booking')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      window.setTimeout(() => $('input[name="name"]', form)?.focus(), 650);
-    });
-  });
-
-  $('.form-next', form)?.addEventListener('click', () => {
-    const stepOne = $('.form-step[data-step="1"]', form);
-    const inputs = $$('input, select, textarea', stepOne);
-    const invalid = inputs.find(field => !field.checkValidity());
-    if (invalid) {
-      invalid.reportValidity();
-      if (formStatus) formStatus.textContent = 'Please complete the required details first.';
-      return;
-    }
-    if (formStatus) formStatus.textContent = '';
-    showStep(2, true);
-  });
-
-  $('.form-back', form)?.addEventListener('click', () => {
-    if (formStatus) formStatus.textContent = '';
-    showStep(1, true);
-  });
-
-  // Set booking date to today or later.
-  const dateInput = $('input[name="eventDate"]', form);
-  if (dateInput) {
-    const now = new Date();
-    const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().split('T')[0];
-    dateInput.min = localDate;
-  }
-
-  form?.addEventListener('submit', event => {
-    event.preventDefault();
-    const allFields = $$('input[required], select[required], textarea[required]', form);
-    const invalid = allFields.find(field => !field.checkValidity());
-    if (invalid) {
-      const step = invalid.closest('.form-step');
-      showStep(Number(step?.dataset.step || 1));
-      invalid.reportValidity();
-      if (formStatus) formStatus.textContent = 'A few required details are still missing.';
-      return;
-    }
-
-    const data = new FormData(form);
-    const details = {
-      name: data.get('name')?.trim(),
-      phone: data.get('phone')?.trim(),
-      eventType: data.get('eventType'),
-      eventDate: data.get('eventDate'),
-      location: data.get('location')?.trim(),
-      package: data.get('package'),
-      message: data.get('message')?.trim() || 'No additional requirements'
-    };
-
-    const message = `Hello ChitroRong,\n\nI would like to check availability for my wedding coverage.\n\nName: ${details.name}\nPhone: ${details.phone}\nEvent Type: ${details.eventType}\nEvent Date: ${details.eventDate}\nLocation: ${details.location}\nPreferred Package: ${details.package}\nRequirements: ${details.message}`;
-    const whatsappNumber = '8801602155907';
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    if (formStatus) formStatus.textContent = 'Opening WhatsApp…';
-    window.open(url, '_blank', 'noopener,noreferrer');
-  });
+  previousButton?.addEventListener('click', () => setLightboxImage(activeIndex - 1));
+  nextButton?.addEventListener('click', () => setLightboxImage(activeIndex + 1));
+  lightbox?.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
 
   document.addEventListener('keydown', event => {
-    if (event.key !== 'Escape') return;
-    if (lightbox?.classList.contains('is-open')) closeLightbox();
-    else closeMenu();
+    if (event.key === 'Escape') {
+      closeLightbox();
+      closeMobileNav();
+    }
+    if (!lightbox?.classList.contains('open')) return;
+    if (event.key === 'ArrowLeft') setLightboxImage(activeIndex - 1);
+    if (event.key === 'ArrowRight') setLightboxImage(activeIndex + 1);
   });
 
-  const year = $('#year');
-  if (year) year.textContent = String(new Date().getFullYear());
+  const packageSelect = $('#packageSelect');
+  const bookingSection = $('#booking');
+  $$('.package-book').forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedPackage = button.dataset.package;
+      if (!packageSelect || !selectedPackage) return;
+      let option = [...packageSelect.options].find(item => item.value === selectedPackage || item.textContent.trim() === selectedPackage);
+      if (!option) {
+        option = new Option(selectedPackage, selectedPackage);
+        packageSelect.add(option);
+      }
+      packageSelect.value = option.value;
+      bookingSection?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      window.setTimeout(() => packageSelect.focus({ preventScroll: true }), prefersReducedMotion ? 0 : 700);
+    });
+  });
+
+  const dateInput = $('#eventDate');
+  if (dateInput) {
+    const today = new Date();
+    const localISODate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    dateInput.min = localISODate;
+  }
+
+  const bookingForm = $('#bookingForm');
+  const formNote = $('#formNote');
+  bookingForm?.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!bookingForm.reportValidity()) return;
+
+    const formData = new FormData(bookingForm);
+    const details = {
+      name: String(formData.get('name') || '').trim(),
+      phone: String(formData.get('phone') || '').trim(),
+      eventType: String(formData.get('eventType') || '').trim(),
+      eventDate: String(formData.get('eventDate') || '').trim(),
+      location: String(formData.get('location') || '').trim(),
+      package: String(formData.get('package') || '').trim(),
+      message: String(formData.get('message') || '').trim() || 'No additional requirements.'
+    };
+
+    const whatsappMessage = `Hello ChitroRong,\n\nI want to book / know about your wedding photography package.\n\nName: ${details.name}\nPhone: ${details.phone}\nEvent Type: ${details.eventType}\nEvent Date: ${details.eventDate}\nLocation: ${details.location}\nPreferred Package: ${details.package}\nMessage: ${details.message}`;
+    const phone = bookingForm.dataset.whatsapp || '8801602155907';
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    formNote.textContent = 'Opening WhatsApp with your booking message…';
+    window.open(url, '_blank', 'noopener,noreferrer');
+    window.setTimeout(() => {
+      formNote.textContent = 'Your details stay in your browser until you choose to send the WhatsApp message.';
+    }, 3500);
+  });
+
+  $('#year').textContent = String(new Date().getFullYear());
 })();
