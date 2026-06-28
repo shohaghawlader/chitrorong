@@ -3,587 +3,426 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChitroRong | Premium Wedding Photography & Cinematography</title>
-  <meta name="description" content="ChitroRong offers premium wedding photography and cinematic wedding films for Holud, Wedding, Reception and Couple Sessions. View portfolio and book your date via WhatsApp." />
-  <meta name="theme-color" content="#170B20" />
+  <meta name="theme-color" content="#171716" />
+  <meta name="description" content="ChitroRong — wedding photography and cinema for Holud, wedding, reception and couple stories across Bangladesh." />
+  <title>ChitroRong — Wedding Photography & Cinema</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="site-loader" id="siteLoader">
-    <div class="loader-mark">চিত্ররং</div>
-    <span>Loading your wedding story...</span>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <div class="site-loader" id="siteLoader" aria-hidden="true">
+    <div class="loader-word">চিত্ররং</div>
+    <div class="loader-line"><span></span></div>
+    <p>Making space for the story</p>
   </div>
 
-  <header class="header" id="header">
-    <a class="brand" href="#home" aria-label="ChitroRong home">
-      <span class="brand-mark">চিত্ররং</span>
-      <span class="brand-line">Wedding Films & Photography</span>
+  <header class="site-header" id="siteHeader">
+    <a class="site-logo" href="#top" aria-label="ChitroRong home">
+      <span class="logo-bangla">চিত্ররং</span>
+      <span class="logo-caption">Wedding photography<br />&amp; cinema</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav" id="navMenu" aria-label="Primary navigation">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#rates">Rates</a>
       <a href="#films">Films</a>
-      <a href="#packages">Packages</a>
-      <a href="#booking" class="nav-cta">Book Now</a>
     </nav>
+
+    <a class="header-cta" href="#booking"><span>Plan your date</span><b>↗</b></a>
+
+    <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span>Menu</span><i></i>
+    </button>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-video-poster.webp">
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-top">
+      <span>Navigation</span>
+      <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">×</button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <a href="#work"><span>01</span> Selected work</a>
+      <a href="#approach"><span>02</span> What we cover</a>
+      <a href="#rates"><span>03</span> Packages &amp; rates</a>
+      <a href="#films"><span>04</span> Wedding films</a>
+      <a href="#booking"><span>05</span> Check your date</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <p>Bangladesh<br />Available for wedding stories</p>
+      <a href="https://wa.me/8801602155907" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+  </aside>
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <main id="mainContent">
+    <section class="hero" id="top">
+      <video class="hero-media" autoplay muted loop playsinline poster="assets/images/hero-video-poster.webp" aria-label="ChitroRong wedding showreel">
         <source src="assets/video/chitrorong-hero.mp4" type="video/mp4" />
       </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-grain"></div>
-      <div class="hero-content reveal">
-        <p class="eyebrow">Premium Wedding Photography & Cinematography</p>
-        <h1>Your Wedding Story, Captured Cinematically.</h1>
-        <p class="hero-copy">Elegant bridal portraits, emotional ceremonies, timeless couple moments and cinematic wedding films — crafted for memories that feel alive forever.</p>
+      <div class="hero-wash"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-topline">
+        <span>BD / Wedding visual studio</span>
+        <span>Scroll to explore <b>↓</b></span>
+      </div>
+
+      <div class="hero-title-wrap">
+        <p class="hero-kicker">Every celebration has its own language.</p>
+        <h1><span>Not just</span><em>wedding</em><strong>coverage.</strong></h1>
+      </div>
+
+      <div class="hero-bottom">
+        <p>We turn fast, emotional days into images and films you can return to for years.</p>
         <div class="hero-actions">
-          <a href="#packages" class="btn btn-primary">View Packages</a>
-          <a href="#booking" class="btn btn-ghost">Check Availability</a>
+          <a class="button button-lime" href="#booking">Check availability <span>↗</span></a>
+          <a class="text-link invert" href="#work">View the work <span>↓</span></a>
         </div>
       </div>
-      <div class="hero-card reveal delay-1">
-        <span>ChitroRong</span>
-        <strong>Holud • Wedding • Reception</strong>
-        <p>Packages start from ৳6,000</p>
-      </div>
-      <a class="scroll-cue" href="#packages" aria-label="Scroll to packages"><span></span></a>
+
+      <div class="hero-side-label">CHITRORONG / 01</div>
+      <div class="hero-stamp">PHOTO<br />+ FILM</div>
     </section>
 
-    <section class="section packages" id="packages">
-      <div class="container">
-        <div class="section-head centered reveal">
-          <p class="eyebrow dark">Packages</p>
-          <h2>Choose the coverage that fits your wedding story.</h2>
-          <p>Core Team Package, TOP Team Package and Hindu Special Team packages are arranged clearly for fast comparison and booking.</p>
-        </div>
-
-        <div class="package-category-head reveal delay-1">
-          <span>01</span>
-          <h3>Core Team Package</h3>
-          <p>Essential photography and cinematography packages for single-event, two-event and complete three-event coverage.</p>
-        </div>
-
-        <div class="package-panel package-group" id="core">
-          <article class="price-card reveal">
-            <div class="price-head">
-              <p>Only Photography</p><strong>৳6,000</strong>
-            </div>
-            <h3>Single Event Photo Coverage</h3>
-            <ul>
-              <li>1 Core Photographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>Shooting duration: 4 hours</li>
-              <li>Google Drive delivery</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="Only Photography — ৳6,000">Book This Package</button>
-          </article>
-
-          <article class="price-card featured reveal delay-1">
-            <div class="ribbon">Popular</div>
-            <div class="price-head">
-              <p>1 Program Combo</p><strong>৳12,000</strong>
-            </div>
-            <h3>Photography + Cinematography</h3>
-            <ul>
-              <li>1 Core Photographer</li>
-              <li>1 Core Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 1 promo</li>
-              <li>15–30 minutes 1 edited video</li>
-              <li>Google Drive delivery</li>
-              <li>Shooting duration: 5 hours</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="1 Program Combo — ৳12,000">Book This Package</button>
-          </article>
-
-          <article class="price-card reveal delay-2">
-            <div class="price-head">
-              <p>Holud & Wedding</p><strong>৳24,000</strong>
-            </div>
-            <h3>Two Event Coverage</h3>
-            <ul>
-              <li>1 Core Photographer</li>
-              <li>1 Core Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 2 promo</li>
-              <li>15–30 minutes 2 edited videos</li>
-              <li>Google Drive delivery</li>
-              <li>5 hours coverage per event</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="Holud & Wedding — ৳24,000">Book This Package</button>
-          </article>
-
-          <article class="price-card reveal">
-            <div class="ribbon">Offer</div>
-            <div class="price-head">
-              <p>Holud / Wedding / Reception</p><strong>৳36,000</strong>
-            </div>
-            <h3>Complete Three Event Coverage</h3>
-            <ul>
-              <li>Special Offer: Pre-Wedding Free</li>
-              <li>1 Core Photographer</li>
-              <li>1 Core Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 3 promo</li>
-              <li>15–30 minutes 3 edited videos</li>
-              <li>Google Drive delivery</li>
-              <li>5 hours coverage per event</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="Holud / Wedding / Reception — ৳36,000">Book This Package</button>
-          </article>
-        </div>
-
-        <div class="package-layer-gap" aria-hidden="true"></div>
-
-        <div class="package-category-head reveal">
-          <span>02</span>
-          <h3>TOP Team Package</h3>
-          <p>Premium team packages with the same coverage structure, upgraded team quality and refined storytelling.</p>
-        </div>
-
-        <div class="package-panel package-group" id="top">
-          <article class="price-card">
-            <div class="price-head">
-              <p>Only Photography</p><strong>৳8,500</strong>
-            </div>
-            <h3>Single Event Photo Coverage</h3>
-            <ul>
-              <li>1 Senior Photographer</li>
-              <li>1 Top Photographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>Shooting duration: 4 hours</li>
-              <li>Google Drive delivery</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="TOP Team Package — Only Photography — ৳7,500">Book This Package</button>
-          </article>
-          <article class="price-card featured">
-            <div class="ribbon">Top Pick</div>
-            <div class="price-head">
-              <p>1 Program Combo</p><strong>৳16,000</strong>
-            </div>
-            <h3>Photography + Cinematography</h3>
-            <ul>
-              <li>1 Senior Photographer</li>
-              <li>1 Top Photographer</li>
-              <li>1 Top Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 1 promo</li>
-              <li>15–30 minutes 1 edited video</li>
-              <li>Google Drive delivery</li>
-              <li>Shooting duration: 5 hours</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="TOP Team Package — 1 Program Combo — ৳15,000">Book This Package</button>
-          </article>
-          <article class="price-card">
-            <div class="price-head">
-              <p>Holud & Wedding</p><strong>৳30,000</strong>
-            </div>
-            <h3>Two Event Coverage</h3>
-            <ul>
-              <li>1 Top Photographer</li>
-              <li>1 Top Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 2 promos</li>
-              <li>15–30 minutes 2 edited videos</li>
-              <li>Google Drive delivery</li>
-              <li>5 hours coverage per event</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="TOP Team Package — Holud & Wedding — ৳30,000">Book This Package</button>
-          </article>
-          <article class="price-card">
-            <div class="price-head">
-              <p>Holud / Wedding / Reception</p><strong>৳45,000</strong>
-            </div>
-            <h3>Complete Three Event Coverage</h3>
-            <ul>
-              <li>Special Offer: Pre-Wedding Free</li>
-              <li>1 Top Photographer</li>
-              <li>1 Top Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 3 promos</li>
-              <li>15–30 minutes 3 edited videos</li>
-              <li>Google Drive delivery</li>
-              <li>5 hours coverage per event</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="TOP Team Package — Holud / Wedding / Reception — ৳45,000">Book This Package</button>
-          </article>
-        </div>
-
-        <div class="package-layer-gap" aria-hidden="true"></div>
-
-        <div class="package-category-head reveal">
-          <span>03</span>
-          <h3>Hindu Special Team</h3>
-          <p>Sanatan wedding bride packages designed for morning rituals, Godhuli Logno wedding coverage, Basi Biye and Biday moments.</p>
-        </div>
-
-        <div class="package-panel package-group" id="hindu">
-          <article class="price-card featured">
-            <div class="ribbon">Core</div>
-            <div class="price-head">
-              <p>Sanatan Wedding — Bride Package</p><strong>৳36,000</strong>
-            </div>
-            <h3>Core Package</h3>
-            <ul>
-              <li>Morning Ritual: Adhibash / Holud Snan</li>
-              <li>Wedding: Godhuli Logno</li>
-              <li>Basi Biye / Biday coverage</li>
-              <li>1 Core Photographer</li>
-              <li>1 Core Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 2 promo videos</li>
-              <li>15 minutes to 1 hour+ edited video</li>
-              <li>Google Drive delivery</li>
-              <li>Shooting duration: Full program cover</li>
-              <li>Reception added: ৳12,000</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="Hindu Special Team — Sanatan Wedding Bride Package Core — ৳36,000">Book This Package</button>
-          </article>
-
-          <article class="price-card featured">
-            <div class="ribbon">Top</div>
-            <div class="price-head">
-              <p>Sanatan Wedding — Bride Package</p><strong>৳45,000</strong>
-            </div>
-            <h3>Top Package</h3>
-            <ul>
-              <li>Morning Ritual: Adhibash / Holud Snan</li>
-              <li>Wedding: Godhuli Logno</li>
-              <li>Basi Biye / Biday coverage</li>
-              <li>1 Top Photographer</li>
-              <li>1 Top Cinematographer</li>
-              <li>Unlimited raw pictures</li>
-              <li>Unlimited edited pictures</li>
-              <li>2–3 minutes 2 promo videos</li>
-              <li>15 minutes to 1 hour+ edited video</li>
-              <li>Google Drive delivery</li>
-              <li>Shooting duration: Full program cover</li>
-              <li>Reception added: ৳15,000</li>
-            </ul>
-            <button class="btn btn-price package-book" data-package="Hindu Special Team — Sanatan Wedding Bride Package Top — ৳45,000">Book This Package</button>
-          </article>
-        </div>
+    <section class="intro-band" id="about">
+      <div class="intro-number">01</div>
+      <div class="intro-copy reveal">
+        <p class="eyebrow">A visual memory, not a checklist</p>
+        <h2>Big rituals. Tiny glances.<br /><em>All of it matters.</em></h2>
+      </div>
+      <div class="intro-note reveal delay-1">
+        <p>ChitroRong documents the pulse of Holud, wedding, reception and couple sessions with a calm team, editorial instinct and room for real moments to happen.</p>
+        <a href="#approach" class="text-link">How we work <span>→</span></a>
       </div>
     </section>
 
-    <section class="proof-strip">
-      <div><strong>50K+</strong><span>Facebook Community</span></div>
-      <div><strong>10</strong><span>Total Package Options</span></div>
-      <div><strong>Photo + Film</strong><span>Complete Coverage</span></div>
-      <div><strong>WhatsApp</strong><span>Fast Booking</span></div>
+    <section class="featured-frame" aria-label="Featured wedding story">
+      <figure class="featured-image reveal">
+        <img src="assets/images/editorial-bride-wide.webp" alt="Editorial bridal portrait by ChitroRong" loading="eager" />
+        <figcaption><span>Featured frame</span><span>Bridal / 2026</span></figcaption>
+      </figure>
+      <div class="featured-quote reveal delay-1">
+        <span class="quote-mark">“</span>
+        <p>Elegance is not staged. It is noticed.</p>
+      </div>
     </section>
 
-    <section class="section about" id="about">
-      <div class="container about-grid">
-        <div class="about-media reveal">
-          <img src="assets/images/editorial-bride-wide.webp" alt="ChitroRong bridal portrait" loading="lazy" />
-          <div class="mini-image">
-            <img src="assets/images/stage-couple-wide.webp" alt="Couple wedding portrait by ChitroRong" loading="lazy" />
+    <section class="work-section" id="work">
+      <div class="section-shell">
+        <div class="section-header reveal">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>A living archive<br />of <em>real</em> celebrations.</h2>
           </div>
+          <p class="section-summary">Portraits, rituals, atmosphere and the people who make a wedding feel like theirs. Tap a frame to see it larger.</p>
         </div>
-        <div class="section-copy reveal delay-1">
-          <p class="eyebrow dark">About ChitroRong</p>
-          <h2>We do not just take photos. We preserve emotions.</h2>
-          <p>Every wedding has a rhythm: the quiet bridal preparation, the nervous smile before the ceremony, the family moments, the rituals, the laughter, the tears and the celebration. ChitroRong captures those moments with a premium visual style and a cinematic storytelling approach.</p>
-          <p>From simple single-program coverage to full wedding events, our goal is to create a visual memory that feels elegant, emotional and personal.</p>
-          <div class="signature-row">
-            <span>চিত্ররং</span>
-            <small>Frame by frame, your story lives.</small>
-          </div>
+
+        <div class="work-controls reveal delay-1" role="tablist" aria-label="Filter selected work">
+          <button class="work-filter is-active" type="button" data-filter="all" role="tab" aria-selected="true">All stories <span>15</span></button>
+          <button class="work-filter" type="button" data-filter="bridal" role="tab" aria-selected="false">Bridal <span>4</span></button>
+          <button class="work-filter" type="button" data-filter="couple" role="tab" aria-selected="false">Couples <span>6</span></button>
+          <button class="work-filter" type="button" data-filter="ceremony" role="tab" aria-selected="false">Ceremony <span>3</span></button>
+          <button class="work-filter" type="button" data-filter="cinematic" role="tab" aria-selected="false">After dark <span>2</span></button>
         </div>
+      </div>
+
+      <div class="work-grid" id="portfolioGrid">
+        <button class="work-card work-card--wide reveal" type="button" data-category="ceremony" data-full="assets/images/hindu-ritual-wide.webp" data-title="The sacred hour" data-meta="Ceremony / ChitroRong" aria-label="Open The sacred hour image">
+          <img src="assets/images/hindu-ritual-wide.webp" alt="Traditional wedding ceremony couple" loading="lazy" />
+          <span class="work-card-info"><i>01</i><strong>The sacred hour</strong><em>Ceremony</em></span>
+        </button>
+        <button class="work-card work-card--portrait reveal delay-1" type="button" data-category="bridal" data-full="assets/images/red-bridal-close.webp" data-title="Red, in detail" data-meta="Bridal / ChitroRong" aria-label="Open Red, in detail image">
+          <img src="assets/images/red-bridal-close.webp" alt="Red bridal portrait" loading="lazy" />
+          <span class="work-card-info"><i>02</i><strong>Red, in detail</strong><em>Bridal</em></span>
+        </button>
+        <button class="work-card work-card--portrait reveal delay-2" type="button" data-category="cinematic" data-full="assets/images/smoke-kiss-wide.webp" data-title="After the lights" data-meta="Night story / ChitroRong" aria-label="Open After the lights image">
+          <img src="assets/images/smoke-kiss-wide.webp" alt="Cinematic smoke couple shot" loading="lazy" />
+          <span class="work-card-info"><i>03</i><strong>After the lights</strong><em>After dark</em></span>
+        </button>
+        <button class="work-card work-card--landscape reveal" type="button" data-category="couple" data-full="assets/images/outdoor-lake-couple-wide.webp" data-title="A quiet kind of joy" data-meta="Couple session / ChitroRong" aria-label="Open A quiet kind of joy image">
+          <img src="assets/images/outdoor-lake-couple-wide.webp" alt="Outdoor lake couple portrait" loading="lazy" />
+          <span class="work-card-info"><i>04</i><strong>A quiet kind of joy</strong><em>Couples</em></span>
+        </button>
+        <button class="work-card work-card--landscape reveal delay-1" type="button" data-category="bridal" data-full="assets/images/editorial-bride-wide.webp" data-title="The pause before" data-meta="Bridal / ChitroRong" aria-label="Open The pause before image">
+          <img src="assets/images/editorial-bride-wide.webp" alt="Editorial bridal portrait" loading="lazy" />
+          <span class="work-card-info"><i>05</i><strong>The pause before</strong><em>Bridal</em></span>
+        </button>
+        <button class="work-card work-card--wide reveal" type="button" data-category="couple" data-full="assets/images/white-veil-sofa-wide.webp" data-title="Softly, together" data-meta="Couple / ChitroRong" aria-label="Open Softly, together image">
+          <img src="assets/images/white-veil-sofa-wide.webp" alt="White veil couple portrait" loading="lazy" />
+          <span class="work-card-info"><i>06</i><strong>Softly, together</strong><em>Couples</em></span>
+        </button>
+        <button class="work-card work-card--portrait reveal delay-1" type="button" data-category="ceremony" data-full="assets/images/hindu-ritual-portrait.webp" data-title="The ritual remembers" data-meta="Ceremony / ChitroRong" aria-label="Open The ritual remembers image">
+          <img src="assets/images/hindu-ritual-portrait.webp" alt="Hindu ritual portrait" loading="lazy" />
+          <span class="work-card-info"><i>07</i><strong>The ritual remembers</strong><em>Ceremony</em></span>
+        </button>
+        <button class="work-card work-card--portrait reveal delay-2" type="button" data-category="couple" data-full="assets/images/night-couple-front.webp" data-title="The way you look" data-meta="Couple / ChitroRong" aria-label="Open The way you look image">
+          <img src="assets/images/night-couple-front.webp" alt="Night couple portrait" loading="lazy" />
+          <span class="work-card-info"><i>08</i><strong>The way you look</strong><em>Couples</em></span>
+        </button>
+        <button class="work-card work-card--landscape reveal" type="button" data-category="cinematic" data-full="assets/images/smoke-portrait-wide.webp" data-title="Blue hour, loud heart" data-meta="Night story / ChitroRong" aria-label="Open Blue hour, loud heart image">
+          <img src="assets/images/smoke-portrait-wide.webp" alt="Smoke portrait wedding couple" loading="lazy" />
+          <span class="work-card-info"><i>09</i><strong>Blue hour, loud heart</strong><em>After dark</em></span>
+        </button>
+        <button class="work-card work-card--portrait reveal delay-1" type="button" data-category="bridal" data-full="assets/images/red-bridal-sindoor.webp" data-title="A blessing in red" data-meta="Bridal / ChitroRong" aria-label="Open A blessing in red image">
+          <img src="assets/images/red-bridal-sindoor.webp" alt="Bridal sindoor ritual closeup" loading="lazy" />
+          <span class="work-card-info"><i>10</i><strong>A blessing in red</strong><em>Bridal</em></span>
+        </button>
+        <button class="work-card work-card--wide reveal" type="button" data-category="couple" data-full="assets/images/stage-couple-wide.webp" data-title="The room disappears" data-meta="Couple / ChitroRong" aria-label="Open The room disappears image">
+          <img src="assets/images/stage-couple-wide.webp" alt="Stage couple wedding portrait" loading="lazy" />
+          <span class="work-card-info"><i>11</i><strong>The room disappears</strong><em>Couples</em></span>
+        </button>
+        <button class="work-card work-card--landscape reveal delay-1" type="button" data-category="ceremony" data-full="assets/images/night-group-wide.webp" data-title="Every person, present" data-meta="Ceremony / ChitroRong" aria-label="Open Every person, present image">
+          <img src="assets/images/night-group-wide.webp" alt="Night group wedding shot" loading="lazy" />
+          <span class="work-card-info"><i>12</i><strong>Every person, present</strong><em>Ceremony</em></span>
+        </button>
       </div>
     </section>
 
-    <section class="section services" id="services">
-      <div class="container">
-        <div class="section-head centered reveal">
-          <p class="eyebrow dark">Our Services</p>
-          <h2>Complete wedding coverage for every moment.</h2>
-          <p>Choose photography, cinematography or a complete combo package for your Holud, Wedding, Reception and Couple Session.</p>
+    <section class="approach" id="approach">
+      <div class="approach-heading reveal">
+        <p class="eyebrow eyebrow-light">The coverage</p>
+        <h2>One team.<br /><em>Every kind</em> of moment.</h2>
+        <p>Choose a single focus or let us follow the full journey from the first colour to the final goodbye.</p>
+      </div>
+      <div class="approach-stream">
+        <article class="approach-card reveal">
+          <span>01 / Portrait</span>
+          <img src="assets/images/red-bridal-close-thumb.webp" alt="Bridal portrait photography" loading="lazy" />
+          <h3>Bridal portraits</h3>
+          <p>Details, makeup, jewelry and quiet frames that hold the feeling of getting ready.</p>
+        </article>
+        <article class="approach-card reveal delay-1">
+          <span>02 / Documentary</span>
+          <img src="assets/images/stage-couple-sofa-thumb.webp" alt="Wedding event photography" loading="lazy" />
+          <h3>Wedding coverage</h3>
+          <p>People, rituals and unrepeatable moments captured without making the day feel like a shoot.</p>
+        </article>
+        <article class="approach-card reveal delay-2">
+          <span>03 / Cinema</span>
+          <img src="assets/images/smoke-kiss-wide-thumb.webp" alt="Cinematic wedding film" loading="lazy" />
+          <h3>Wedding films</h3>
+          <p>Short promos and edited event films cut with the energy your celebration actually had.</p>
+        </article>
+        <article class="approach-card reveal">
+          <span>04 / Tradition</span>
+          <img src="assets/images/hindu-ritual-portrait-thumb.webp" alt="Ceremony and ritual coverage" loading="lazy" />
+          <h3>Ritual &amp; celebration</h3>
+          <p>Holud, Sanatan wedding customs, family rituals and every vivid in-between.</p>
+        </article>
+        <article class="approach-card reveal delay-1">
+          <span>05 / Together</span>
+          <img src="assets/images/outdoor-white-couple-portrait-thumb.webp" alt="Couple session photography" loading="lazy" />
+          <h3>Couple sessions</h3>
+          <p>A little time away from the crowd for playful, relaxed, cinematic portraits.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="numbers-band" aria-label="ChitroRong highlights">
+      <div><strong>50K+</strong><span>Facebook community</span></div>
+      <div><strong>10</strong><span>clear package options</span></div>
+      <div><strong>Photo + film</strong><span>under one creative direction</span></div>
+      <div><strong>BD</strong><span>available across Bangladesh</span></div>
+    </section>
+
+    <section class="rates-section" id="rates">
+      <div class="section-shell">
+        <div class="rates-intro reveal">
+          <p class="eyebrow">Packages &amp; rates</p>
+          <h2>Less guessing.<br /><em>More clarity.</em></h2>
+          <p>Every package is visible below. Start with the team that feels right, compare the coverage, then add your choice straight to a booking enquiry.</p>
         </div>
 
-        <div class="service-grid">
-          <article class="service-card reveal">
-            <img src="assets/images/red-bridal-close-thumb.webp" alt="Bridal photography service" loading="lazy" />
-            <div>
-              <span>01</span>
-              <h3>Bridal Portraits</h3>
-              <p>Elegant close-ups, jewelry details, makeup moments and timeless bridal frames.</p>
+        <div class="rate-stack" aria-label="All wedding photography and cinema packages">
+          <section class="rate-group rate-group--core reveal" data-rate-panel="core" aria-labelledby="coreRates">
+            <div class="rate-group-header">
+              <span class="rate-group-index">01</span>
+              <div>
+                <p class="rate-group-label">For intimate to full celebrations</p>
+                <h3 id="coreRates">Core Team</h3>
+              </div>
+              <p>Essential photography and cinema coverage for one event, two events, or the complete three-event story.</p>
             </div>
-          </article>
-          <article class="service-card reveal delay-1">
-            <img src="assets/images/stage-couple-sofa-thumb.webp" alt="Wedding photography service" loading="lazy" />
-            <div>
-              <span>02</span>
-              <h3>Wedding Photography</h3>
-              <p>Complete event coverage with unlimited raw and edited pictures.</p>
+            <div class="pricing-grid">
+              <article class="price-card">
+                <div class="price-top"><span>Photo only</span><strong>৳6,000</strong></div>
+                <h3>Single event photo</h3>
+                <ul><li>1 Core Photographer</li><li>Unlimited raw pictures</li><li>Unlimited edited pictures</li><li>4 hours coverage</li><li>Google Drive delivery</li></ul>
+                <button class="package-book" type="button" data-package="Only Photography — ৳6,000">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card price-card--feature">
+                <div class="price-top"><span>Most chosen</span><strong>৳12,000</strong></div>
+                <h3>1 program combo</h3>
+                <ul><li>1 Core Photographer + 1 Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>2–3 minute promo</li><li>15–30 minute edited video</li><li>5 hours coverage + Drive delivery</li></ul>
+                <button class="package-book" type="button" data-package="1 Program Combo — ৳12,000">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card">
+                <div class="price-top"><span>Holud + wedding</span><strong>৳24,000</strong></div>
+                <h3>Two event coverage</h3>
+                <ul><li>1 Core Photographer + 1 Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>2 promos + 2 edited videos</li><li>5 hours coverage per event</li><li>Google Drive delivery</li></ul>
+                <button class="package-book" type="button" data-package="Holud &amp; Wedding — ৳24,000">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card">
+                <div class="price-top"><span>Full story + offer</span><strong>৳36,000</strong></div>
+                <h3>Three event coverage</h3>
+                <ul><li><b>Pre-wedding session free</b></li><li>1 Core Photographer + 1 Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>3 promos + 3 edited videos</li><li>5 hours coverage per event</li></ul>
+                <button class="package-book" type="button" data-package="Holud / Wedding / Reception — ৳36,000">Choose this <span>↗</span></button>
+              </article>
             </div>
-          </article>
-          <article class="service-card reveal delay-2">
-            <img src="assets/images/smoke-kiss-wide-thumb.webp" alt="Cinematic wedding film service" loading="lazy" />
-            <div>
-              <span>03</span>
-              <h3>Cinematic Films</h3>
-              <p>Promo films and edited event videos that turn real moments into stories.</p>
+          </section>
+
+          <section class="rate-group rate-group--top reveal" data-rate-panel="top" aria-labelledby="topRates">
+            <div class="rate-group-header">
+              <span class="rate-group-index">02</span>
+              <div>
+                <p class="rate-group-label">For a senior-led experience</p>
+                <h3 id="topRates">TOP Team</h3>
+              </div>
+              <p>Upgraded team quality and refined storytelling for clients who want senior-level coverage from start to finish.</p>
             </div>
-          </article>
-          <article class="service-card reveal">
-            <img src="assets/images/hindu-ritual-portrait-thumb.webp" alt="Holud and ceremony coverage service" loading="lazy" />
-            <div>
-              <span>04</span>
-              <h3>Holud & Ceremony</h3>
-              <p>Colorful rituals, family moments, cultural details and celebration coverage.</p>
+            <div class="pricing-grid">
+              <article class="price-card">
+                <div class="price-top"><span>Photo only</span><strong>৳8,500</strong></div>
+                <h3>Single event photo</h3>
+                <ul><li>1 Senior Photographer</li><li>1 TOP Photographer</li><li>Unlimited raw &amp; edited pictures</li><li>4 hours coverage</li><li>Google Drive delivery</li></ul>
+                <button class="package-book" type="button" data-package="TOP Team Package — Only Photography — ৳8,500">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card price-card--feature">
+                <div class="price-top"><span>TOP pick</span><strong>৳16,000</strong></div>
+                <h3>1 program combo</h3>
+                <ul><li>Senior + TOP Photographer</li><li>1 TOP Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>2–3 minute promo + edited video</li><li>5 hours coverage + Drive delivery</li></ul>
+                <button class="package-book" type="button" data-package="TOP Team Package — 1 Program Combo — ৳16,000">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card">
+                <div class="price-top"><span>Holud + wedding</span><strong>৳30,000</strong></div>
+                <h3>Two event coverage</h3>
+                <ul><li>1 TOP Photographer + 1 TOP Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>2 promos + 2 edited videos</li><li>5 hours coverage per event</li><li>Google Drive delivery</li></ul>
+                <button class="package-book" type="button" data-package="TOP Team Package — Holud &amp; Wedding — ৳30,000">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card">
+                <div class="price-top"><span>Full story + offer</span><strong>৳45,000</strong></div>
+                <h3>Three event coverage</h3>
+                <ul><li><b>Pre-wedding session free</b></li><li>1 TOP Photographer + 1 TOP Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>3 promos + 3 edited videos</li><li>5 hours coverage per event</li></ul>
+                <button class="package-book" type="button" data-package="TOP Team Package — Holud / Wedding / Reception — ৳45,000">Choose this <span>↗</span></button>
+              </article>
             </div>
-          </article>
-          <article class="service-card reveal delay-1">
-            <img src="assets/images/outdoor-white-couple-portrait-thumb.webp" alt="Couple session photography service" loading="lazy" />
-            <div>
-              <span>05</span>
-              <h3>Couple Session</h3>
-              <p>Romantic couple portraits, outdoor frames and pre/post-wedding sessions.</p>
+          </section>
+
+          <section class="rate-group rate-group--hindu reveal" data-rate-panel="hindu" aria-labelledby="hinduRates">
+            <div class="rate-group-header">
+              <span class="rate-group-index">03</span>
+              <div>
+                <p class="rate-group-label">Built around Sanatan rituals</p>
+                <h3 id="hinduRates">Hindu Special</h3>
+              </div>
+              <p>Designed for Sanatan wedding rituals, Godhuli Logno, Basi Biye / Biday moments and optional reception coverage.</p>
             </div>
-          </article>
-          
+            <div class="pricing-grid pricing-grid--two">
+              <article class="price-card price-card--feature">
+                <div class="price-top"><span>Core package</span><strong>৳36,000</strong></div>
+                <h3>Sanatan bride package</h3>
+                <ul><li>Morning ritual: Adhibash / Holud Snan</li><li>Wedding: Godhuli Logno</li><li>Basi Biye / Biday coverage</li><li>1 Core Photographer + 1 Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>2 promo videos + 15 min to 1 hr+ edited film</li><li>Reception add-on: ৳12,000</li></ul>
+                <button class="package-book" type="button" data-package="Hindu Special Team — Sanatan Wedding Bride Package Core — ৳36,000">Choose this <span>↗</span></button>
+              </article>
+              <article class="price-card price-card--feature">
+                <div class="price-top"><span>TOP package</span><strong>৳45,000</strong></div>
+                <h3>Sanatan bride package</h3>
+                <ul><li>Morning ritual: Adhibash / Holud Snan</li><li>Wedding: Godhuli Logno</li><li>Basi Biye / Biday coverage</li><li>1 TOP Photographer + 1 TOP Cinematographer</li><li>Unlimited raw &amp; edited pictures</li><li>2 promo videos + 15 min to 1 hr+ edited film</li><li>Reception add-on: ৳15,000</li></ul>
+                <button class="package-book" type="button" data-package="Hindu Special Team — Sanatan Wedding Bride Package Top — ৳45,000">Choose this <span>↗</span></button>
+              </article>
+            </div>
+          </section>
         </div>
       </div>
     </section>
 
-    <section class="section portfolio" id="portfolio">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow dark">Signature Portfolio</p>
-          <h2>Moments that feel cinematic, elegant and real.</h2>
-          <p>Curated images from wedding ceremonies, bridal portraits, couple moments and cinematic night shoots.</p>
-        </div>
-
-        <div class="filter-bar reveal delay-1" role="tablist" aria-label="Portfolio filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="bridal">Bridal</button>
-          <button class="filter-btn" data-filter="couple">Couple</button>
-          <button class="filter-btn" data-filter="ceremony">Ceremony</button>
-          <button class="filter-btn" data-filter="cinematic">Cinematic</button>
-        </div>
-
-        <div class="portfolio-grid" id="portfolioGrid">
-          <button class="portfolio-item wide" data-category="ceremony" data-full="assets/images/hindu-ritual-wide.webp" aria-label="Open portfolio image"><img src="assets/images/hindu-ritual-wide.webp" alt="Traditional wedding ceremony couple" loading="lazy" /><span>Wedding Ceremony</span></button>
-          <button class="portfolio-item tall" data-category="bridal" data-full="assets/images/red-bridal-close.webp" aria-label="Open portfolio image"><img src="assets/images/red-bridal-close.webp" alt="Red bridal portrait" loading="lazy" /><span>Bridal Portrait</span></button>
-          <button class="portfolio-item" data-category="couple" data-full="assets/images/pink-couple-portrait.webp" aria-label="Open portfolio image"><img src="assets/images/pink-couple-portrait.webp" alt="Pink couple portrait" loading="lazy" /><span>Couple Moment</span></button>
-          <button class="portfolio-item tall" data-category="cinematic" data-full="assets/images/smoke-kiss-wide.webp" aria-label="Open portfolio image"><img src="assets/images/smoke-kiss-wide.webp" alt="Cinematic smoke couple shot" loading="lazy" /><span>Cinematic Night</span></button>
-          <button class="portfolio-item" data-category="couple" data-full="assets/images/outdoor-lake-couple-wide.webp" aria-label="Open portfolio image"><img src="assets/images/outdoor-lake-couple-wide.webp" alt="Outdoor lake couple portrait" loading="lazy" /><span>Outdoor Couple</span></button>
-          <button class="portfolio-item" data-category="bridal" data-full="assets/images/editorial-bride-wide.webp" aria-label="Open portfolio image"><img src="assets/images/editorial-bride-wide.webp" alt="Editorial bridal portrait" loading="lazy" /><span>Editorial Bride</span></button>
-          <button class="portfolio-item wide" data-category="couple" data-full="assets/images/white-veil-sofa-wide.webp" aria-label="Open portfolio image"><img src="assets/images/white-veil-sofa-wide.webp" alt="White veil couple portrait" loading="lazy" /><span>Veil Moment</span></button>
-          <button class="portfolio-item" data-category="ceremony" data-full="assets/images/hindu-ritual-portrait.webp" aria-label="Open portfolio image"><img src="assets/images/hindu-ritual-portrait.webp" alt="Hindu ritual portrait" loading="lazy" /><span>Ritual Details</span></button>
-          <button class="portfolio-item tall" data-category="couple" data-full="assets/images/night-couple-front.webp" aria-label="Open portfolio image"><img src="assets/images/night-couple-front.webp" alt="Night couple classic portrait" loading="lazy" /><span>Classic Couple</span></button>
-          <button class="portfolio-item" data-category="cinematic" data-full="assets/images/smoke-portrait-wide.webp" aria-label="Open portfolio image"><img src="assets/images/smoke-portrait-wide.webp" alt="Smoke portrait wedding couple" loading="lazy" /><span>Smoke Portrait</span></button>
-          <button class="portfolio-item" data-category="bridal" data-full="assets/images/red-bridal-sindoor.webp" aria-label="Open portfolio image"><img src="assets/images/red-bridal-sindoor.webp" alt="Bridal sindoor ritual closeup" loading="lazy" /><span>Bridal Detail</span></button>
-          <button class="portfolio-item wide" data-category="couple" data-full="assets/images/stage-couple-wide.webp" aria-label="Open portfolio image"><img src="assets/images/stage-couple-wide.webp" alt="Stage couple wedding portrait" loading="lazy" /><span>Stage Portrait</span></button>
-          <button class="portfolio-item" data-category="ceremony" data-full="assets/images/night-group-wide.webp" aria-label="Open portfolio image"><img src="assets/images/night-group-wide.webp" alt="Night group wedding shot" loading="lazy" /><span>Group Coverage</span></button>
-          <button class="portfolio-item" data-category="bridal" data-full="assets/images/night-close-bride.webp" aria-label="Open portfolio image"><img src="assets/images/night-close-bride.webp" alt="Night bridal closeup" loading="lazy" /><span>Night Bridal</span></button>
-          <button class="portfolio-item" data-category="couple" data-full="assets/images/outdoor-white-dance.webp" aria-label="Open portfolio image"><img src="assets/images/outdoor-white-dance.webp" alt="Outdoor couple hand pose" loading="lazy" /><span>Outdoor Story</span></button>
-        </div>
+    <section class="film-section" id="films">
+      <div class="film-caption reveal">
+        <p class="eyebrow eyebrow-light">Motion, with feeling</p>
+        <h2>Some memories need<br />to <em>move.</em></h2>
+        <p>Event promos, long-form edits and highlight films that let the sound, pace and emotion of the day stay alive.</p>
+        <a class="button button-light" href="#booking">Plan photo + film <span>↗</span></a>
+      </div>
+      <div class="film-player reveal delay-1">
+        <video controls preload="metadata" poster="assets/images/hero-video-poster.webp">
+          <source src="assets/video/chitrorong-hero.mp4" type="video/mp4" />
+        </video>
+        <div class="film-meta"><span>Play showreel</span><strong>ChitroRong / wedding cinema</strong><span>01:00</span></div>
       </div>
     </section>
 
-    <section class="section films" id="films">
-      <div class="container films-grid">
-        <div class="section-copy reveal">
-          <p class="eyebrow dark">Wedding Films</p>
-          <h2>Short promos, event films and cinematic memories.</h2>
-          <p>Use this section for your best teasers, highlights and full wedding films. The demo video can be replaced with YouTube, Vimeo, Facebook or optimized MP4 links later.</p>
-          <ul class="check-list">
-            <li>2–3 minutes event promo</li>
-            <li>15–30 minutes edited video</li>
-            <li>Highlight film for Holud, Wedding and Reception</li>
-          </ul>
-          <a href="#booking" class="btn btn-dark">Plan My Coverage</a>
+    <section class="process-section">
+      <div class="section-shell">
+        <div class="process-intro reveal">
+          <p class="eyebrow">From hello to delivery</p>
+          <h2>Easy to plan.<br /><em>Easy to remember.</em></h2>
         </div>
-        <div class="film-card reveal delay-1">
-          <video controls preload="metadata" poster="assets/images/hero-video-poster.webp">
-            <source src="assets/video/chitrorong-hero.mp4" type="video/mp4" />
-          </video>
-          <div class="film-info">
-            <span>Demo Showreel</span>
-            <strong>ChitroRong Cinematic Wedding Story</strong>
-          </div>
-        </div>
+        <ol class="process-list">
+          <li class="reveal"><span>01</span><div><h3>Tell us the shape of the day.</h3><p>Date, venue, number of programs and the coverage you are considering.</p></div></li>
+          <li class="reveal delay-1"><span>02</span><div><h3>Choose a coverage direction.</h3><p>We help match your event flow with photo, film and team options.</p></div></li>
+          <li class="reveal delay-2"><span>03</span><div><h3>Reserve the date.</h3><p>After the details are settled, advance payment confirms the booking.</p></div></li>
+          <li class="reveal"><span>04</span><div><h3>Relive it all.</h3><p>Receive your edited photos, films and package deliverables in the agreed format.</p></div></li>
+        </ol>
       </div>
     </section>
 
-    <section class="section process">
-      <div class="container">
-        <div class="section-head centered reveal">
-          <p class="eyebrow dark">Booking Process</p>
-          <h2>Simple, clear and fast.</h2>
-        </div>
-        <div class="process-grid">
-          <div class="process-step reveal"><span>01</span><h3>Share Details</h3><p>Tell us your event date, location, event type and preferred package.</p></div>
-          <div class="process-step reveal delay-1"><span>02</span><h3>Choose Coverage</h3><p>We suggest the best photography and cinematography coverage plan.</p></div>
-          <div class="process-step reveal delay-2"><span>03</span><h3>Confirm Date</h3><p>Advance payment confirms your date and booking schedule.</p></div>
-          <div class="process-step reveal"><span>04</span><h3>Receive Memories</h3><p>Get edited photos, films, prints, album and files as per your package.</p></div>
-        </div>
+    <section class="booking-section" id="booking">
+      <div class="booking-art" aria-hidden="true">
+        <img src="assets/images/pink-couple-portrait.webp" alt="" loading="lazy" />
       </div>
-    </section>
-
-    <section class="section testimonials">
-      <div class="container testimonials-grid">
-        <div class="section-copy reveal">
-          <p class="eyebrow dark">Client Love</p>
-          <h2>Built on emotions, trust and beautiful delivery.</h2>
-          <p>Replace these demo testimonials with real client reviews from Facebook comments, inbox screenshots or video feedback.</p>
-        </div>
-        <div class="review-stack reveal delay-1">
-          <article><p>“The photos felt premium and emotional. Every important family moment was captured beautifully.”</p><span>— Wedding Client</span></article>
-          <article><p>“The promo video was exactly what we wanted. Short, cinematic and full of memories.”</p><span>— Reception Client</span></article>
-          <article><p>“Very smooth booking and delivery. The album and edited photos were lovely.”</p><span>— Holud Client</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section faq">
-      <div class="container">
-        <div class="section-head centered reveal">
-          <p class="eyebrow dark">FAQ</p>
-          <h2>Questions clients usually ask.</h2>
-        </div>
-        <div class="faq-list reveal delay-1">
-          <details open>
-            <summary>How do I confirm my booking?</summary>
-            <p>Submit the booking form or contact us on WhatsApp. Your date will be confirmed after discussion and advance payment.</p>
-          </details>
-          <details>
-            <summary>Can packages be customized?</summary>
-            <p>Yes. Package can be customized based on your event type, location, duration and delivery requirement.</p>
-          </details>
-          <details>
-            <summary>How will I receive photos and videos?</summary>
-            <p>Depending on the package, files are delivered through Google Drive and pendrive. Prints and album are included in selected packages.</p>
-          </details>
-          <details>
-            <summary>Do you cover Holud, Wedding and Reception?</summary>
-            <p>Yes. We cover single events, two-event packages and complete three-event wedding stories.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section booking" id="booking">
-      <div class="container booking-grid">
+      <div class="booking-content">
         <div class="booking-copy reveal">
-          <p class="eyebrow">Book Your Date</p>
-          <h2>Tell us your event details.</h2>
-          <p>After submitting the form, WhatsApp will open automatically with your booking details. You can review the message and send it directly to ChitroRong.</p>
-          <div class="contact-card">
-            <span>WhatsApp</span>
-            <strong>+880 1602-155907</strong>
-            <small>Available for package queries and booking confirmation.</small>
-          </div>
+          <p class="eyebrow eyebrow-light">Start the conversation</p>
+          <h2>Is your date<br /><em>still open?</em></h2>
+          <p>Send the essentials. We will open WhatsApp with a ready-to-review message so you can ask about availability straight away.</p>
+          <div class="booking-contact"><span>WhatsApp</span><a href="https://wa.me/8801602155907" target="_blank" rel="noopener">+880 1602-155907 ↗</a></div>
         </div>
 
-        <form class="booking-form reveal delay-1" id="bookingForm">
-          <div class="form-row">
-            <label>Full Name
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label>Phone Number
-              <input type="tel" name="phone" placeholder="01XXXXXXXXX" required />
-            </label>
+        <form class="booking-form reveal delay-1" id="bookingForm" novalidate>
+          <div class="form-progress" aria-hidden="true"><span class="is-current" data-progress="1">01</span><i></i><span data-progress="2">02</span></div>
+          <div class="form-step is-current" data-step="1">
+            <p class="form-overline">Step 01 — your day</p>
+            <div class="form-grid">
+              <label>Full name<input type="text" name="name" placeholder="Your name" autocomplete="name" required /></label>
+              <label>Phone number<input type="tel" name="phone" placeholder="01XXXXXXXXX" autocomplete="tel" inputmode="tel" required /></label>
+              <label>Event type<select name="eventType" required><option value="">Select event type</option><option>Holud</option><option>Wedding</option><option>Reception</option><option>Holud + Wedding</option><option>Holud + Wedding + Reception</option><option>Couple Session</option><option>Hindu Wedding</option></select></label>
+              <label>Event date<input type="date" name="eventDate" required /></label>
+              <label class="form-span">Event location<input type="text" name="location" placeholder="Venue / district / area" required /></label>
+            </div>
+            <button class="button button-dark form-next" type="button">Continue <span>→</span></button>
           </div>
-          <div class="form-row">
-            <label>Event Type
-              <select name="eventType" required>
-                <option value="">Select event type</option>
-                <option>Holud</option>
-                <option>Wedding</option>
-                <option>Reception</option>
-                <option>Holud + Wedding</option>
-                <option>Holud + Wedding + Reception</option>
-                <option>Couple Session</option>
-                <option>Hindu Wedding</option>
-              </select>
-            </label>
-            <label>Event Date
-              <input type="date" name="eventDate" required />
-            </label>
+          <div class="form-step" data-step="2" hidden>
+            <p class="form-overline">Step 02 — your coverage</p>
+            <label>Preferred package<select name="package" id="packageSelect" required><option value="">Select a package</option><option>Only Photography — ৳6,000</option><option>1 Program Combo — ৳12,000</option><option>Holud &amp; Wedding — ৳24,000</option><option>Holud / Wedding / Reception — ৳36,000</option><option>TOP Team Package — Only Photography — ৳8,500</option><option>TOP Team Package — 1 Program Combo — ৳16,000</option><option>TOP Team Package — Holud &amp; Wedding — ৳30,000</option><option>TOP Team Package — Holud / Wedding / Reception — ৳45,000</option><option>Hindu Special Team — Sanatan Wedding Bride Package Core — ৳36,000</option><option>Hindu Special Team — Sanatan Wedding Bride Package Top — ৳45,000</option><option>Custom Package</option></select></label>
+            <label>Anything we should know?<textarea name="message" rows="5" placeholder="Tell us about program timings, guests, special rituals, or any coverage requirement."></textarea></label>
+            <div class="form-actions"><button class="form-back text-link" type="button">← Back</button><button class="button button-lime" type="submit">Open WhatsApp <span>↗</span></button></div>
           </div>
-          <label>Event Location
-            <input type="text" name="location" placeholder="Venue / district / area" required />
-          </label>
-          <label>Preferred Package
-            <select name="package" id="packageSelect" required>
-              <option value="">Select a package</option>
-              <option>Only Photography — ৳6,000</option>
-              <option>1 Program Combo — ৳12,000</option>
-              <option>Holud & Wedding — ৳24,000</option>
-              <option>Holud / Wedding / Reception — ৳36,000</option>
-              <option>TOP Team Package — Only Photography — ৳7,500</option>
-              <option>TOP Team Package — 1 Program Combo — ৳15,000</option>
-              <option>TOP Team Package — Holud & Wedding — ৳30,000</option>
-              <option>TOP Team Package — Holud / Wedding / Reception — ৳45,000</option>
-              <option>Hindu Special Team — Sanatan Wedding Bride Package Core — ৳36,000</option>
-              <option>Hindu Special Team — Sanatan Wedding Bride Package Top — ৳45,000</option>
-              <option>Custom Package</option>
-            </select>
-          </label>
-          <label>Message / Requirements
-            <textarea name="message" rows="4" placeholder="Tell us about your event, timing, number of programs or special requirement..."></textarea>
-          </label>
-          <button type="submit" class="btn btn-form">Submit & Open WhatsApp</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
+  <footer class="site-footer">
+    <div class="footer-top">
       <div>
-        <a class="brand footer-brand" href="#home">
-          <span class="brand-mark">চিত্ররং</span>
-          <span class="brand-line">Premium Wedding Films & Photography</span>
-        </a>
-        <p>Capturing timeless wedding stories through elegant photography and cinematic films.</p>
+        <a class="footer-logo" href="#top">চিত্ররং</a>
+        <p>Wedding photography and cinema for the stories you will keep returning to.</p>
       </div>
-      <div>
-        <h3>Explore</h3>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#films">Films</a>
-        <a href="#packages">Packages</a>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <a href="https://wa.me/8801966336841" target="_blank" rel="noopener">WhatsApp: +880 1966-336841</a>
-        <a href="https://www.facebook.com/chitrorong" target="_blank" rel="noopener">Facebook Page</a>
-        <span>Service Area: Bangladesh</span>
-      </div>
+      <div class="footer-links"><span>Explore</span><a href="#work">Selected work</a><a href="#approach">Coverage</a><a href="#rates">Packages</a><a href="#booking">Check your date</a></div>
+      <div class="footer-links"><span>Find us</span><a href="https://wa.me/8801602155907" target="_blank" rel="noopener">WhatsApp ↗</a><a href="https://www.facebook.com/chitrorong" target="_blank" rel="noopener">Facebook ↗</a><p>Available across Bangladesh</p></div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> ChitroRong. All rights reserved.</span>
-      <span>Designed for premium wedding storytelling.</span>
-    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> ChitroRong</span><span>Designed for moments in motion</span><a href="#top">Back to top ↑</a></div>
   </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
-    <img src="" alt="Expanded portfolio image" id="lightboxImage" />
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image preview">×</button>
+    <div class="lightbox-inner"><img id="lightboxImage" src="" alt="" /><div><span id="lightboxMeta"></span><strong id="lightboxTitle"></strong></div></div>
   </div>
+
+  <a class="mobile-book" href="#booking"><span>Check your date</span><b>↗</b></a>
 
   <script src="script.js"></script>
 </body>
