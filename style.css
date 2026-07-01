@@ -53,7 +53,7 @@ section[id] { scroll-margin-top: 84px; }
 
 .hero { position: relative; min-height: min(820px,100svh); overflow: hidden; color: #fff; background: var(--ink-deep); isolation: isolate; }
 .hero-image { position: absolute; inset: -14px; z-index: -3; background: url("https://chitrorong.vercel.app/assets/new-media/photos/hero-image.jpg") center center / cover no-repeat; filter: blur(3px); transform: scale(1.035); will-change: transform; }
-.hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(9,16,14,.87) 0%, rgba(10,16,14,.56) 47%, rgba(10,16,14,.2) 100%), linear-gradient(0deg, rgba(9,16,14,.68), transparent 47%); }
+.hero-shade { position: absolute; inset: 0; z-index: -2; }
 .hero-noise { position: absolute; inset: 0; z-index: -1; opacity: .24; background-image: radial-gradient(rgba(255,255,255,.18) .55px, transparent .6px); background-size: 5px 5px; mix-blend-mode: soft-light; pointer-events: none; }
 .hero-layout { display: grid; grid-template-columns: 1.1fr .42fr; gap: 50px; min-height: min(820px,100svh); align-items: end; padding: 150px 0 92px; }
 .hero-copy { max-width: 720px; }
