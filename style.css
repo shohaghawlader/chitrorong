@@ -96,7 +96,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
 .special-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 670px; }
 .premium-pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1000px; }
-.price-card { position: relative; display: flex; min-height: 450px; flex-direction: column; padding: 28px 24px 23px; border: 1px solid var(--line); background: var(--paper); transition: transform .25s ease, box-shadow .25s ease; }
+.price-card { position: relative; display: flex; min-height: 670px; flex-direction: column; padding: 28px 24px 23px; border: 1px solid var(--line); background: var(--paper); transition: transform .25s ease, box-shadow .25s ease; }
 .price-card:hover { z-index: 1; transform: translateY(-8px); box-shadow: 0 24px 42px rgba(22,33,31,.12); }
 .price-card.featured { border-color: var(--gold); background: linear-gradient(145deg, #fffdf8 0%, #f7ecd6 100%); }
 .card-flag { position: absolute; top: 0; right: 0; padding: 8px 10px; background: var(--wine); color: #fff; font-size: 8px; font-weight: 850; letter-spacing: .11em; }
@@ -108,6 +108,14 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .price-card ul { display: grid; gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; color: var(--muted); font-size: 12px; line-height: 1.4; }
 .price-card li { position: relative; padding-left: 14px; }
 .price-card li:before { content: ''; position: absolute; left: 0; top: .48em; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+/* Shared package details — intentionally larger so every deliverable is easy to compare. */
+.package-delivery { margin: 0 -4px 22px; padding: 16px 15px 15px; border: 1px solid rgba(202,164,102,.38); background: linear-gradient(135deg, rgba(248,243,233,.98), rgba(250,241,220,.72)); }
+.package-delivery-title { margin: 0 0 12px !important; color: var(--wine) !important; font-size: 9px !important; font-weight: 850 !important; letter-spacing: .12em !important; text-transform: uppercase; }
+.price-card .package-delivery ul { display: grid; gap: 11px; margin: 0; color: var(--ink); font-size: 13px; line-height: 1.5; }
+.price-card .package-delivery li { padding-left: 28px; }
+.price-card .package-delivery li:before { content: '✓'; top: .1em; display: grid; width: 17px; height: 17px; place-items: center; border-radius: 50%; background: rgba(202,164,102,.22); color: var(--pine); font-size: 10px; font-weight: 900; }
+.price-card .package-delivery strong { color: var(--pine); font-weight: 850; }
 .choose-package { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: auto; padding: 14px 0 0; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--pine); font-size: 9px; font-weight: 850; letter-spacing: .13em; text-align: left; text-transform: uppercase; }
 .choose-package span { font-size: 17px; transition: transform .2s ease; }
 .choose-package:hover span { transform: translate(3px,-3px); }
@@ -361,4 +369,11 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
   html { scroll-behavior: auto; }
   *, *:before, *:after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* More natural card height when package cards stack on smaller screens. */
+@media (max-width: 800px) {
+  .price-card { min-height: 0; }
+  .package-delivery { margin-inline: 0; padding: 16px 14px; }
+  .price-card .package-delivery ul { font-size: 12px; }
 }

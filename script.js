@@ -222,9 +222,10 @@
       date: String(fields.get('eventDate') || '').trim(),
       location: String(fields.get('location') || '').trim(),
       package: String(fields.get('package') || '').trim(),
+      payment: String(fields.get('paymentMethod') || '').trim(),
       message: String(fields.get('message') || '').trim() || 'No additional requirements.'
     };
-    const message = `Hello ChitroRong,\n\nI would like to enquire about wedding coverage.\n\nName: ${info.name}\nPhone: ${info.phone}\nEvent type: ${info.type}\nEvent date: ${info.date}\nLocation: ${info.location}\nPreferred package: ${info.package}\nMessage: ${info.message}`;
+    const message = `Hello ChitroRong,\n\nI would like to enquire about wedding coverage.\n\nName: ${info.name}\nPhone: ${info.phone}\nEvent type: ${info.type}\nEvent date: ${info.date}\nLocation: ${info.location}\nPreferred package: ${info.package}\nPayment with: ${info.payment}\nMessage: ${info.message}`;
     const phone = bookingForm.dataset.whatsapp || '8801966336841';
     formNote.textContent = 'Opening WhatsApp with your booking message…';
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
