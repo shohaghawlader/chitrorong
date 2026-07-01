@@ -34,14 +34,15 @@ section[id] { scroll-margin-top: 84px; }
 
 .page-loader { position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center; background: var(--ink-deep); color: var(--gold-light); transition: opacity .45s ease, visibility .45s ease; }
 .page-loader.is-hidden { opacity: 0; visibility: hidden; }
-.loader-mark { font: 400 clamp(36px,6vw,64px)/1 var(--serif); letter-spacing: .02em; }
+.loader-logo { width: min(330px, 72vw); max-height: min(150px, 24vh); object-fit: contain; filter: drop-shadow(0 12px 26px rgba(0,0,0,.30)); animation: logo-intro .8s ease both; }
+@keyframes logo-intro { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-.site-header { position: fixed; inset: 0 0 auto; z-index: 100; padding: 20px 0; color: #fff; transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
-.site-header.scrolled { padding: 12px 0; background: rgba(14,23,21,.94); box-shadow: 0 12px 30px rgba(0,0,0,.16); backdrop-filter: blur(12px); }
+.site-header { position: fixed; inset: 0 0 auto; z-index: 100; padding: 16px 0; color: #fff; transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
+.site-header.scrolled { padding: 10px 0; background: rgba(14,23,21,.94); box-shadow: 0 12px 30px rgba(0,0,0,.16); backdrop-filter: blur(12px); }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-.brand { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1; }
-.brand-bangla { color: var(--gold-light); font: 400 31px/1 var(--serif); letter-spacing: -.06em; }
-.brand-type { margin-top: 5px; color: rgba(255,255,255,.75); font-size: 7px; font-weight: 800; letter-spacing: .18em; }
+.brand { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1; min-width: 0; }
+.brand-logo { display: block; width: clamp(124px, 11vw, 172px); height: 42px; object-fit: contain; object-position: left center; filter: drop-shadow(0 3px 8px rgba(0,0,0,.24)); }
+.brand-type { margin-top: 6px; color: rgba(255,255,255,.78); font-size: 7px; font-weight: 800; letter-spacing: .18em; white-space: nowrap; }
 .desktop-nav { display: flex; align-items: center; gap: 27px; }
 .desktop-nav > a { color: rgba(255,255,255,.82); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; transition: color .2s ease; }
 .desktop-nav > a:hover { color: var(--gold-light); }
@@ -232,7 +233,8 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 
 .site-footer { padding: 72px 0 18px; background: #0b1210; color: #fff; }
 .footer-layout { display: grid; grid-template-columns: 1.4fr .6fr .8fr; gap: 70px; }
-.footer-brand .brand-bangla { font-size: 37px; }
+.footer-brand .brand-logo { width: clamp(160px, 14vw, 220px); height: 56px; }
+.footer-brand .brand-type { margin-top: 9px; font-size: 7px; }
 .footer-layout p { max-width: 350px; margin: 19px 0 0; color: rgba(255,255,255,.57); font-size: 12px; line-height: 1.8; }
 .footer-layout h3 { margin: 0 0 18px; color: var(--gold-light); font-size: 9px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
 .footer-layout div:not(:first-child) { display: grid; align-content: start; gap: 10px; }
@@ -307,10 +309,10 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 
 @media (max-width: 560px) {
   :root { --shell: calc(100vw - 36px); }
-  .site-header { padding: 14px 0; }
-  .site-header.scrolled { padding: 10px 0; }
-  .brand-bangla { font-size: 28px; }
-  .brand-type { font-size: 6px; }
+  .site-header { padding: 12px 0; }
+  .site-header.scrolled { padding: 9px 0; }
+  .brand-logo { width: 132px; height: 37px; }
+  .brand-type { margin-top: 4px; font-size: 6px; letter-spacing: .15em; }
   .mobile-nav { top: 65px; right: 18px; width: calc(100vw - 36px); }
   .hero { min-height: 630px; }
   .hero-layout { min-height: 630px; padding: 118px 0 50px; }
@@ -376,4 +378,11 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
   .price-card { min-height: 0; }
   .package-delivery { margin-inline: 0; padding: 16px 14px; }
   .price-card .package-delivery ul { font-size: 12px; }
+}
+
+/* Keep the official logo comfortably proportioned on very small screens. */
+@media (max-width: 390px) {
+  .brand-logo { width: 116px; height: 34px; }
+  .brand-type { font-size: 5px; letter-spacing: .13em; }
+  .loader-logo { width: min(280px, 76vw); }
 }
