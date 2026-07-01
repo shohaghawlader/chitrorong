@@ -29,21 +29,6 @@
   });
   $$('#mobileNav a').forEach(link => link.addEventListener('click', closeMenu));
 
-  const heroVideo = $('#heroVideo');
-  const soundButton = $('#soundButton');
-  const syncSoundButton = () => {
-    if (!heroVideo || !soundButton) return;
-    soundButton.innerHTML = `<span id="soundIcon">${heroVideo.muted ? '◖' : '◗'}</span> Film sound ${heroVideo.muted ? 'off' : 'on'}`;
-    soundButton.setAttribute('aria-label', heroVideo.muted ? 'Turn on video sound' : 'Turn off video sound');
-  };
-  soundButton?.addEventListener('click', () => {
-    if (!heroVideo) return;
-    heroVideo.muted = !heroVideo.muted;
-    if (!heroVideo.muted) heroVideo.play().catch(() => {});
-    syncSoundButton();
-  });
-  syncSoundButton();
-
   const observer = !reduceMotion && 'IntersectionObserver' in window
     ? new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {

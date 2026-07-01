@@ -44,9 +44,8 @@
 
   <main>
     <section class="hero" id="home">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/new-media/posters/white-wedding-film.webp">
-        <source src="assets/new-media/videos/white-wedding-film.mp4" type="video/mp4" />
-      </video>
+      <!-- Full-size hero background image. The source stays in your existing assets path. -->
+      <div class="hero-image" role="img" aria-label="ChitroRong wedding photography"></div>
       <div class="hero-shade"></div>
       <div class="hero-noise" aria-hidden="true"></div>
 
@@ -62,9 +61,8 @@
         </div>
 
         <div class="hero-side reveal delay-2">
-          <button class="sound-button" id="soundButton" type="button" aria-label="Turn on video sound"><span id="soundIcon">◖</span> Film sound off</button>
-          <div class="hero-side-line"></div>
           <p><b>NEW COLLECTION</b><br />Fresh wedding frames and six new cinematic stories, now featured first.</p>
+          <div class="hero-side-line"></div>
           <span class="hero-count">01 — 06</span>
         </div>
       </div>
@@ -120,7 +118,7 @@
             </div>
             <div class="pricing-grid premium-pricing-grid">
               <article class="price-card premium-card reveal"><span class="card-flag">1 DAY</span><p>PREMIUM SIGNATURE TEAM</p><h3>One-Day<br />Coverage</h3><strong>৳22,000</strong><ul><li>1 Core Photographer</li><li>1 Senior Photographer</li><li>1 Core Cinematographer</li><li>1 Senior Cinematographer</li><li>Complete photo + cinema coverage</li></ul><button class="choose-package" data-package="Premium Package — 1 Day — ৳22,000">Choose this plan <span>↗</span></button></article>
-              <article class="price-card featured premium-card reveal delay-1"><span class="card-flag">SAVE ৳4,000</span><p>PREMIUM SIGNATURE TEAM</p><h3>Two-Day<br />Coverage</h3><strong>৳40,000</strong><span class="price-saving"><s>Regular ৳44,000</s> &nbsp;•&nbsp; You save ৳4,000</span><ul><li>1 Core Photographer</li><li>1 Senior Photographer</li><li>1 Core Cinematographer</li><li>1 Senior Cinematographer</li><li>Complete photo + cinema coverage</li></ul><button class="choose-package" data-package="Premium Package — 2 Days — ৳40,000 (Save ৳4,000)">Choose this plan <span>↗</span></button></article>
+              <article class="price-card featured premium-card reveal delay-1"><span class="card-flag">SAVE ৳2,000</span><p>PREMIUM SIGNATURE TEAM</p><h3>Two-Day<br />Coverage</h3><strong>৳42,000</strong><span class="price-saving"><s>Regular ৳44,000</s> &nbsp;•&nbsp; You save ৳2,000</span><ul><li>1 Core Photographer</li><li>1 Senior Photographer</li><li>1 Core Cinematographer</li><li>1 Senior Cinematographer</li><li>Complete photo + cinema coverage</li></ul><button class="choose-package" data-package="Premium Package — 2 Days — ৳42,000 (Save ৳2,000)">Choose this plan <span>↗</span></button></article>
               <article class="price-card featured premium-card reveal delay-2"><span class="card-flag">SAVE ৳6,000</span><p>PREMIUM SIGNATURE TEAM</p><h3>Three-Day<br />Coverage</h3><strong>৳60,000</strong><span class="price-saving"><s>Regular ৳66,000</s> &nbsp;•&nbsp; You save ৳6,000</span><ul><li>1 Core Photographer</li><li>1 Senior Photographer</li><li>1 Core Cinematographer</li><li>1 Senior Cinematographer</li><li>Complete photo + cinema coverage</li></ul><button class="choose-package" data-package="Premium Package — 3 Days — ৳60,000 (Save ৳6,000)">Choose this plan <span>↗</span></button></article>
             </div>
           </section>
@@ -219,7 +217,7 @@
           <div class="form-row"><label>Full name<input type="text" name="name" placeholder="Your name" required /></label><label>Phone number<input type="tel" name="phone" placeholder="01XXXXXXXXX" required /></label></div>
           <div class="form-row"><label>Event type<select name="eventType" required><option value="">Select event type</option><option>Holud</option><option>Wedding</option><option>Reception</option><option>Holud + Wedding</option><option>Holud + Wedding + Reception</option><option>Couple Session</option><option>Hindu Wedding</option></select></label><label>Event date<input type="date" id="eventDate" name="eventDate" required /></label></div>
           <label>Event location<input type="text" name="location" placeholder="Venue / district / area" required /></label>
-          <label>Preferred package<select name="package" id="packageSelect" required><option value="">Select a package</option><option>Only Photography — ৳6,000</option><option>1 Program Combo — ৳12,000</option><option>Holud &amp; Wedding — ৳24,000</option><option>Holud / Wedding / Reception — ৳36,000</option><option>TOP Team Package — Only Photography — ৳8,500</option><option>TOP Team Package — 1 Program Combo — ৳16,000</option><option>TOP Team Package — Holud &amp; Wedding — ৳30,000</option><option>TOP Team Package — Holud / Wedding / Reception — ৳45,000</option><option>Premium Package — 1 Day — ৳22,000</option><option>Premium Package — 2 Days — ৳40,000 (Save ৳4,000)</option><option>Premium Package — 3 Days — ৳60,000 (Save ৳6,000)</option><option>Hindu Special Team — Sanatan Wedding Bride Package Core — ৳36,000</option><option>Hindu Special Team — Sanatan Wedding Bride Package TOP — ৳45,000</option><option>Custom Package</option></select></label>
+          <label>Preferred package<select name="package" id="packageSelect" required><option value="">Select a package</option><option>Only Photography — ৳6,000</option><option>1 Program Combo — ৳12,000</option><option>Holud &amp; Wedding — ৳24,000</option><option>Holud / Wedding / Reception — ৳36,000</option><option>TOP Team Package — Only Photography — ৳8,500</option><option>TOP Team Package — 1 Program Combo — ৳16,000</option><option>TOP Team Package — Holud &amp; Wedding — ৳30,000</option><option>TOP Team Package — Holud / Wedding / Reception — ৳45,000</option><option>Premium Package — 1 Day — ৳22,000</option><option>Premium Package — 2 Days — ৳42,000 (Save ৳2,000)</option><option>Premium Package — 3 Days — ৳60,000 (Save ৳6,000)</option><option>Hindu Special Team — Sanatan Wedding Bride Package Core — ৳36,000</option><option>Hindu Special Team — Sanatan Wedding Bride Package TOP — ৳45,000</option><option>Custom Package</option></select></label>
           <label>Message / requirements<textarea name="message" rows="4" placeholder="Tell us about your timing, number of events or any special requirement..."></textarea></label>
           <button class="button button-booking" type="submit">Continue in WhatsApp <span aria-hidden="true">↗</span></button>
           <p class="form-note" id="formNote" aria-live="polite">Your details stay in your browser until you choose to send the WhatsApp message.</p>
