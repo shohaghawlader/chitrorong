@@ -105,7 +105,8 @@
   const galleryGrid = $('#galleryGrid');
   let activeFilter = 'all';
   let activeGalleryIndex = 0;
-  let activeMediaMode = 'image';
+  let activeFilmIndex = 0;
+  let activeModalType = 'gallery';
   let focusBeforeModal = null;
 
   const getVisibleGallery = () => galleryItems.filter(item => activeFilter === 'all' || item.category === activeFilter);
@@ -147,13 +148,17 @@
   const modalClose = $('#modalClose');
   const modalPrevious = $('#modalPrev');
   const modalNext = $('#modalNext');
+  const filmCards = $$('.film-card[data-video]');
+  const filmItems = filmCards.map(card => ({
+    video: card.dataset.video || '',
+    poster: card.dataset.poster || '',
+    title: card.dataset.title || 'ChitroRong wedding film'
+  }));
 
-  const setModal = (content, mode = 'image') => {
+  const setModal = content => {
     if (!modal || !modalStage) return;
     if (!modal.classList.contains('open')) focusBeforeModal = document.activeElement;
-    activeMediaMode = mode;
     modalStage.innerHTML = content;
-    modal.classList.toggle('video-mode', mode === 'video');
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
@@ -161,36 +166,44 @@
   };
 
   const openGalleryMedia = index => {
+    activeModalType = 'gallery';
     const visibleItems = getVisibleGallery();
     if (!visibleItems.length) return;
     activeGalleryIndex = (index + visibleItems.length) % visibleItems.length;
     const item = visibleItems[activeGalleryIndex];
-    setModal(`<figure><img src="assets/new-media/photos/${item.file}" alt="${item.alt}" /><figcaption>${item.title} — ChitroRong</figcaption></figure>`, 'image');
+    setModal(`<figure><img src="assets/new-media/photos/${item.file}" alt="${item.alt}" /><figcaption>${item.title} — ChitroRong</figcaption></figure>`);
   };
 
-  const openFilmMedia = card => {
-    const title = card.dataset.title || 'ChitroRong film';
-    const src = card.dataset.video;
-    const poster = card.dataset.poster || '';
-    if (!src) return;
-    setModal(`<figure><video controls autoplay playsinline preload="metadata" poster="${poster}"><source src="${src}" type="video/mp4" />Your browser does not support video playback.</video><figcaption>${title} — ChitroRong Film</figcaption></figure>`, 'video');
+  const openFilmMedia = index => {
+    if (!filmItems.length) return;
+    activeModalType = 'film';
+    activeFilmIndex = (index + filmItems.length) % filmItems.length;
+    const item = filmItems[activeFilmIndex];
+    setModal(`<figure class="video-figure"><video src="${item.video}" poster="${item.poster}" controls autoplay playsinline preload="metadata"></video><figcaption>${item.title} — ChitroRong</figcaption></figure>`);
   };
+
+  filmCards.forEach((card, index) => {
+    card.addEventListener('click', () => openFilmMedia(index));
+  });
 
   const closeModal = () => {
     if (!modal?.classList.contains('open')) return;
-    const video = $('video', modalStage);
-    if (video) video.pause();
-    modal.classList.remove('open', 'video-mode');
+    modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
     window.setTimeout(() => { if (modalStage) modalStage.innerHTML = ''; }, 250);
     focusBeforeModal?.focus?.();
   };
 
-  $$('.film-card').forEach(card => card.addEventListener('click', () => openFilmMedia(card)));
   modalClose?.addEventListener('click', closeModal);
-  modalPrevious?.addEventListener('click', () => { if (activeMediaMode === 'image') openGalleryMedia(activeGalleryIndex - 1); });
-  modalNext?.addEventListener('click', () => { if (activeMediaMode === 'image') openGalleryMedia(activeGalleryIndex + 1); });
+  modalPrevious?.addEventListener('click', () => {
+    if (activeModalType === 'film') openFilmMedia(activeFilmIndex - 1);
+    else openGalleryMedia(activeGalleryIndex - 1);
+  });
+  modalNext?.addEventListener('click', () => {
+    if (activeModalType === 'film') openFilmMedia(activeFilmIndex + 1);
+    else openGalleryMedia(activeGalleryIndex + 1);
+  });
   modal?.addEventListener('click', event => { if (event.target === modal) closeModal(); });
 
   document.addEventListener('keydown', event => {
@@ -198,9 +211,15 @@
       closeModal();
       closeMenu();
     }
-    if (!modal?.classList.contains('open') || activeMediaMode !== 'image') return;
-    if (event.key === 'ArrowLeft') openGalleryMedia(activeGalleryIndex - 1);
-    if (event.key === 'ArrowRight') openGalleryMedia(activeGalleryIndex + 1);
+    if (!modal?.classList.contains('open')) return;
+    if (event.key === 'ArrowLeft') {
+      if (activeModalType === 'film') openFilmMedia(activeFilmIndex - 1);
+      else openGalleryMedia(activeGalleryIndex - 1);
+    }
+    if (event.key === 'ArrowRight') {
+      if (activeModalType === 'film') openFilmMedia(activeFilmIndex + 1);
+      else openGalleryMedia(activeGalleryIndex + 1);
+    }
   });
 
   const dateInput = $('#eventDate');
