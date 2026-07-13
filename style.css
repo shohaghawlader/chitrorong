@@ -236,6 +236,16 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
 .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus { border-color: var(--pine); box-shadow: 0 0 0 3px rgba(49,85,77,.14); }
 .field-label { display: block; color: var(--pine); font-size: 9px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .field-help { margin: -2px 0 10px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+.shift-picker { min-width: 0; margin: 0; padding: 0; border: 0; }
+.shift-picker .field-label { margin-bottom: 7px; }
+.shift-picker .field-help { margin-bottom: 10px; }
+.shift-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.shift-option { display: flex !important; grid-template-columns: none !important; align-items: center; gap: 11px !important; min-height: 64px; padding: 12px 13px; border: 1px solid rgba(22,33,31,.16); background: #fff; cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.shift-option:hover { border-color: rgba(103,25,38,.42); transform: translateY(-1px); }
+.shift-option:has(input:checked) { border-color: var(--wine); box-shadow: 0 0 0 3px rgba(103,25,38,.09); }
+.shift-option input { width: 17px !important; height: 17px; margin: 0; padding: 0 !important; accent-color: var(--wine); flex: 0 0 auto; }
+.shift-option span { display: grid; gap: 4px; color: var(--ink); font-size: 12px; font-weight: 800; letter-spacing: normal; line-height: 1.35; text-transform: none; }
+.shift-option small { color: var(--wine); font-size: 11px; font-weight: 850; letter-spacing: normal; text-transform: none; }
 .package-picker { display: grid; gap: 8px; }
 .package-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .package-option { display: flex !important; grid-template-columns: none !important; align-items: flex-start; gap: 10px !important; padding: 12px; border: 1px solid rgba(22,33,31,.16); background: #fff; cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
@@ -412,3 +422,5 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; }
   .brand-type { font-size: 5px; letter-spacing: .13em; }
   .loader-logo { width: min(280px, 76vw); }
 }
+
+@media (max-width: 640px) { .shift-options { grid-template-columns: 1fr; } }

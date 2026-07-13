@@ -357,6 +357,14 @@
 <div class="form-row"><label>Full name<input name="name" placeholder="Your name" required="" type="text"/></label><label>Phone number<input name="phone" placeholder="01XXXXXXXXX" required="" type="tel"/></label></div>
 <div class="form-row"><label>Bride name<input name="brideName" placeholder="Bride name" required="" type="text"/></label><label>Groom name<input name="groomName" placeholder="Groom name" required="" type="text"/></label></div>
 <div class="form-row"><label>Event type<select name="eventType" required=""><option value="">Select event type</option><option>Holud</option><option>Wedding</option><option>Reception</option><option>Holud + Wedding</option><option>Holud + Wedding + Reception</option><option>Couple Session</option><option>Hindu Wedding</option></select></label><label>Event date<input id="eventDate" name="eventDate" required="" type="date"/></label></div>
+<fieldset class="shift-picker">
+<legend class="field-label">Choose shift</legend>
+<p class="field-help">Select the coverage time that matches your event schedule.</p>
+<div class="shift-options">
+<label class="shift-option"><input name="shift" required="" type="radio" value="Day Shift (12:30 PM - 5:30 PM)"/><span><b>Day Shift</b><small>12:30 PM - 5:30 PM</small></span></label>
+<label class="shift-option"><input name="shift" required="" type="radio" value="Night Shift (6:00 PM - 11:00 PM)"/><span><b>Night Shift</b><small>6:00 PM - 11:00 PM</small></span></label>
+</div>
+</fieldset>
 <label>Event location<input name="location" placeholder="Venue / district / area" required="" type="text"/></label>
 <div class="package-picker" id="packagePicker">
 <span class="field-label">Preferred package</span>

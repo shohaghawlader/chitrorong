@@ -317,6 +317,7 @@
       groom: String(fields.get('groomName') || '').trim(),
       type: String(fields.get('eventType') || '').trim(),
       date: String(fields.get('eventDate') || '').trim(),
+      shift: String(fields.get('shift') || '').trim(),
       location: String(fields.get('location') || '').trim(),
       packages: selectedPackages.join(' + '),
       total: formatTaka(total),
@@ -335,6 +336,7 @@ Bride name: ${info.bride}
 Groom name: ${info.groom}
 Event type: ${info.type}
 Event date: ${info.date}
+Shift: ${info.shift}
 Location: ${info.location}
 Preferred package(s): ${info.packages}
 Total amount: ${info.total}
